@@ -21,13 +21,14 @@ const Users = () => {
         <div className="font-bold text-3xl pt-6">
             <h1>Users</h1>
         </div>
+        
         <div className="my-2">
             <InputBox onChange={(e) => {
                 setFilter(e.target.value)
             }} type={"text"}  placeholder={"Search users...."}/>
         </div>
         <div>
-            {users && users.map(user => <User user={user} /> )}
+            {users && users.map(user => <User key={user.id} user={user} /> )}
         </div>
 
     </div>

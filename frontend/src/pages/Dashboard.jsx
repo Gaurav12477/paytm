@@ -1,9 +1,10 @@
-import Appbar from "@/components/ui/Appbar";
+
 import Balance from "@/components/ui/Balance";
 import UserName from "@/components/ui/UserName";
 import Users from "@/components/ui/Users";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import Navbar from "@/components/ui/Navbar";
 
 const Dashboard = () => {
   const [balance, setBalance] = useState(0);
@@ -27,7 +28,7 @@ const Dashboard = () => {
 
   return (
     <div>
-      <Appbar firstLetter={userName[0].toUpperCase()} />
+      <Navbar firstLetter={userName[0].toUpperCase()} />
       <div className="m-8">
         <UserName value={userName.toUpperCase()} />
         <Balance value={balance.toFixed(2)} />

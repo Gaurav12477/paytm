@@ -140,4 +140,15 @@ router.get("/bulk", async (req, res) => {
     })
 })
 
+
+// Authentication Check Endpoint
+router.get("/check-auth", authMiddleware, (req, res) => {
+    // If the middleware passes (i.e., the token is valid), the user is authenticated
+    res.json({
+      isAuthenticated: true,
+      userId: req.userId,
+    });
+  });
+  
+
 module.exports = router;
