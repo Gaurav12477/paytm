@@ -1,6 +1,6 @@
 // backend/routes/user.js
 const express = require('express');
-
+const cookieParser = require('cookie-parser');
 const router = express.Router();
 const zod = require("zod");
 const { User, Account } = require("../db");
@@ -48,7 +48,11 @@ router.post("/signup", async (req, res) => {
 
     const token = jwt.sign({
         userId
-    }, JWT_SECRET);
+    }, JWT_SECRET , {
+        expiresIn:'10m'
+    });
+
+    res.cookie('authToken', token, { httpOnly: true });
 
     res.json({
         message: "User created successfully",
@@ -78,8 +82,10 @@ router.post("/signin", async (req, res) => {
     if (user) {
         const token = jwt.sign({
             userId: user._id
-        }, JWT_SECRET);
-  
+        }, JWT_SECRET ,{
+            expiresIn: '10m'
+        });
+        res.cookie('authToken', token, { httpOnly: true });
         res.json({
             token: token
         })
@@ -99,20 +105,18 @@ const updateBody = zod.object({
 })
 
 router.put("/", authMiddleware, async (req, res) => {
-    const { success } = updateBody.safeParse(req.body)
+     const { success, data } = updateBody.safeParse(req.body);
+
     if (!success) {
-        res.status(411).json({
-            message: "Error while updating information"
-        })
+        return res.status(400).json({ error: 'Invalid update data' });
     }
 
-    await User.updateOne(req.body, {
-        id: req.userId
-    })
-
-    res.json({
-        message: "Updated successfully"
-    })
+    try {
+        await User.updateOne({ _id: ObjectId(req.userId) }, { $set: data });
+        res.json({ message: 'Updated successfully' });
+    } catch (error) {
+        res.status(500).json({ error: 'Internal server error' });
+    }
 })
 
 router.get("/bulk", async (req, res) => {

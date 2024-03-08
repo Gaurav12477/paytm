@@ -21,12 +21,12 @@ export default function Home() {
 
 function Main2(){
   return ( 
-    <div className="flex flex-col justify-between h-[50vh] bg-lightBlue px-20 py-10 space-y-8">
+    <div className="flex flex-col justify-between min-h-[30vh] bg-lightBlue py-5 px-2 sm:px-20 sm:py-10 sm:space-y-8">
       
-      <div className="text-white font-semibold text-5xl">
+      <div className="text-white font-semibold text-lg sm:text-5xl">
       Recharge & Pay Bills on Paytm.
       </div>
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-row justify-around items-center  overflow-scroll sm:overflow-auto">
         <MainCard imgSrc={"../src/assets/card1.png"} heading1={"Recharge"} heading2={"Prepaid"} heading3={"Mobile"} />
         <MainCard imgSrc={"../src/assets/card2.png"} heading1={"Pay"} heading2={"Electricity"} heading3={"Bill"} />
         <MainCard imgSrc={"../src/assets/card3.png"} heading1={"Recharge"} heading2={"DTH"} heading3={"Connection"} />
@@ -42,12 +42,12 @@ function Main2(){
 
 function Main3(){
   return ( 
-    <div className="flex flex-col justify-between h-[50vh] bg-indigo px-20 py-10 space-y-8">
+    <div className="flex flex-col justify-between min-h-[30vh] bg-indigo px-2 sm:px-20 sm:py-10 space-y-8">
       
-      <div className="text-white font-semibold text-5xl">
+      <div className="text-white font-semibold text-lg sm:text-5xl">
       Book & Buy on Paytm.
       </div>
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-row justify-around items-center overflow-scroll sm:overflow-auto">
         <MainCard imgSrc={"../src/assets/cards1.png"}  heading2={"Movie"} heading3={"Tickets"} />
         <MainCard imgSrc={"../src/assets/cards2.png"}  heading2={"Flight"} heading3={"Tickets"} />
         <MainCard imgSrc={"../src/assets/cards3.png"}  heading2={"Bus"} heading3={"Tickets"} />
@@ -67,13 +67,13 @@ function MainCard({imgSrc, heading1, heading2 ,heading3}) {
 
   return (
 
-    <div className=" rounded-lg hover:backdrop-grayscale-[.3] cursor-pointer w-[10vw] p-3">
+    <div className=" rounded-lg hover:backdrop-grayscale-[.3] cursor-pointer  w-full sm:w-[10vw] p-3">
       <div className="">
-        <img className="h-16" src={imgSrc} alt="" />
+        <img className="h-10 sm:h-16" src={imgSrc} alt="" />
       </div>
-      <div className="text-white font-semibold text-lg my-3">
+      <div className="text-white font-semibold sm:text-lg my-3">
         <div>{heading1}</div>
-        <div className="font-bold">
+        <div className="sm:font-bold">
           <div>{heading2}</div>
           <div> {heading3} &gt; </div>
         </div>

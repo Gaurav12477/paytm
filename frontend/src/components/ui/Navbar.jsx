@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ firstLetter }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function checkAuth() {
@@ -34,9 +35,9 @@ const Navbar = ({ firstLetter }) => {
   }, []);
 
   return (
-    <div className="shadow h-16 flex justify-between">
+    <div  className="shadow h-16 flex justify-between">
       <div className="font-bold text-3xl flex flex-col  justify-center h-full ml-4 ">
-        <div className="">
+        <div onClick={() => navigate('/')} className="cursor-pointer">
           <img
             className="w-2/3 sm:w-auto"
             src="..\src\assets\logo.svg"
@@ -81,7 +82,7 @@ function UserSignedIn({ isUserSignedIn, firstLetter }) {
             </div>
           </div>
         ) : (
-          <div onClick={handleSignInClick} className="flex justify-center items-center mx-8 rounded-3xl bg-lightBlue group hover:bg-indigo transition-all duration-150 hover:scale-105 cursor-pointer">
+          <div onClick={handleSignInClick} className="flex justify-center items-center sm:mx-8 rounded-3xl bg-lightBlue group hover:bg-indigo transition-all duration-150 hover:scale-105 cursor-pointer">
             <div  className="text-lg px-3 py-1 font-semibold text-white">Sign in</div>
             <div>
               <svg
