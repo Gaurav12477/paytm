@@ -8,9 +8,9 @@ export default function Main4() {
           Paytm Payment Instruments.
         </h1>
         <Main1
-          iconsrc={"../src/assets/wallet_main4.png"}
+          iconsrc={"https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/main4_card1.webp"}
           iconText={"Paytm Wallet"}
-          imgsrc={"../src/assets/main4_card1.webp"}
+          imgsrc={"https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/main4_card1.webp"}
           head1={"The Fastest Way to"}
           head2={"Pay In-store & Online."}
           text1={"Load up your Paytm Wallet for free and make payments"}
@@ -18,9 +18,9 @@ export default function Main4() {
         />
 
         <Main1
-          iconsrc={"../src/assets/moneyTransIcon.png"}
+          iconsrc={"https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/moneyTransIcon.png"}
           iconText={"Paytm Wallet"}
-          imgsrc={"../src/assets/main4_card2.webp"}
+          imgsrc={"https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/main4_card2.webp"}
           head1={"Pay anyone directly"}
           head2={"from your bank account"}
           text1={
@@ -30,10 +30,10 @@ export default function Main4() {
         />
       </div>
       <div className="flex flex-col gap-16 sm:flex-row justify-center items-center my-2 w-full">
-          <Main41 imgsrc={"../src/assets/main4_card3.webp"} 
+          <Main41 imgsrc={"https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/main4_card3.webp"} 
           head={"Unlimited Cashback Every time"} 
           para={"Paytm HDFC Bank Select Credit Card. A card with assured Cashback and incredible offers."} />
-          <Main41 imgsrc={"../src/assets/main4_card4.webp"} 
+          <Main41 imgsrc={"https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/main4_card4.webp"} 
           head={"India’s Most Sincere Credit Card"} 
           para={"Paytm SBI Card SELECT - With Intelligent Features & Great Rewards that Never Expire"} />
       </div>
@@ -46,7 +46,7 @@ function Main41 ({imgsrc,head,para}) {
     return (
         <div className="min-w-[35vw] justify-around bg-white rounded-3xl px-5 sm:px-16 flex flex-col gap-6 mx-8">
             <div>
-                <img className="w-2/5" src="../src/assets/hdfc.png" alt="" />
+                <img className="w-2/5" src="https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/hdfc.png" alt="" />
             </div>
             <div className="font-bold sm:text-4xl sm:mb-5">
                 {head}

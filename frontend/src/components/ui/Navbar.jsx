@@ -40,7 +40,7 @@ const Navbar = ({ firstLetter }) => {
         <div onClick={() => navigate('/')} className="cursor-pointer">
           <img
             className="w-2/3 sm:w-auto"
-            src="..\src\assets\logo.svg"
+            src="https://myphotobkt.s3.eu-north-1.amazonaws.com/assets/logo.svg"
             alt=""
           />
         </div>
