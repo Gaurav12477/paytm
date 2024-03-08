@@ -68,9 +68,9 @@ function MainCard({imgSrc, heading1, heading2 ,heading3}) {
       <div className="">
         <img className="h-10 sm:h-16" src={imgSrc} alt="" />
       </div>
-      <div className="text-white font-semibold sm:text-lg my-3">
+      <div className="text-white text-sm font-semibold sm:text-lg my-3">
         <div>{heading1}</div>
-        <div className="sm:font-bold">
+        <div className="text-sm sm:font-bold">
           <div>{heading2}</div>
           <div> {heading3} &gt; </div>
         </div>
