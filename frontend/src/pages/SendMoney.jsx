@@ -39,7 +39,7 @@ const SendMoney = () => {
 
                     <div className='mt-6 text-lg font-semibold'>
                     <button onClick={() => {
-                        axios.post("http://localhost:3000/api/v1/account/transfer", {
+                        axios.post("http://13.53.205.111:8080/api/v1/account/transfer", {
                             to: id,
                             amount
                         }, {

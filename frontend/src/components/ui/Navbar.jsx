@@ -16,7 +16,7 @@ const Navbar = ({ firstLetter }) => {
         }
 
         const response = await axios.get(
-          "http://localhost:3000/api/v1/user/check-auth",
+          "http://13.53.205.111:8080/api/v1/user/check-auth",
           {
             headers: {
               Authorization: `Bearer ${authToken}`,
