@@ -3,9 +3,9 @@ const { number } = require("zod");
 // const { string } = require("zod");
 require('dotenv').config();
 
-const my_DB = process.env.MONGODB_URI
+const my_DB = process.env.MONGODB_URI;
 
-mongoose.connect(my_DB)
+mongoose.connect(`${my_DB}`)
   .then(() => {
     console.log('Connected to MongoDB successfully');
   })
