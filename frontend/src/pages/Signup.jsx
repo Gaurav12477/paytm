@@ -17,6 +17,8 @@ const Signup = () => {
   const [password, setPassword] = useState("")
   const navigate = useNavigate();
 
+  const myURL = import.meta.env.VITE_BASE_URL;
+
   return (
     <div className="bg-slate-300 h-screen flex justify-center items-center">
       <div className="flex flex-col justify-center">
@@ -38,7 +40,7 @@ const Signup = () => {
 
         <div className="pt-4">
         <Button onClick={async () => {
-            const response = await axios.post("http://13.53.205.111:8080/api/v1/user/signup/", {
+            const response = await axios.post(`${myURL}/api/v1/user/signup/`, {
               username,
               firstName,
               lastName,

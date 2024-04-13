@@ -6,6 +6,8 @@ const Navbar = ({ firstLetter }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const navigate = useNavigate();
 
+  const myURL = import.meta.env.VITE_BASE_URL;
+
   useEffect(() => {
     async function checkAuth() {
       try {
@@ -16,7 +18,7 @@ const Navbar = ({ firstLetter }) => {
         }
 
         const response = await axios.get(
-          "http://13.53.205.111:8080/api/v1/user/check-auth",
+          `${myURL}/api/v1/user/check-auth`,
           {
             headers: {
               Authorization: `Bearer ${authToken}`,

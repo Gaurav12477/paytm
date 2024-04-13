@@ -9,6 +9,7 @@ const SendMoney = () => {
     const [amount, setAmount] = useState(0);
     const navigate = useNavigate();
     
+    const myURL = import.meta.env.VITE_BASE_URL;
 
     return <div className="flex justify-center h-screen bg-gray-100">
         <div className="h-full flex flex-col justify-center">
@@ -39,7 +40,7 @@ const SendMoney = () => {
 
                     <div className='mt-6 text-lg font-semibold'>
                     <button onClick={() => {
-                        axios.post("http://13.53.205.111:8080/api/v1/account/transfer", {
+                        axios.post(`${myURL}/api/v1/account/transfer`, {
                             to: id,
                             amount
                         }, {

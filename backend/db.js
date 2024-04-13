@@ -1,7 +1,17 @@
 const mongoose = require("mongoose");
 const { number } = require("zod");
 // const { string } = require("zod");
-mongoose.connect("mongodb+srv://gauravsharma12477:Gaurav%4012345@cluster0.vcke2cd.mongodb.net/")
+require('dotenv').config();
+
+const my_DB = process.env.MONGODB_URI
+
+mongoose.connect(my_DB)
+  .then(() => {
+    console.log('Connected to MongoDB successfully');
+  })
+  .catch((error) => {
+    console.error('Error connecting to MongoDB:', error.message);
+  });
 
 const UserSchema = new mongoose.Schema({
     username: {

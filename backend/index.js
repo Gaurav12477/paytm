@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require("cors");
 const rootRouter = require("./routes/index");
 var cookieParser = require('cookie-parser');
+require('dotenv').config();
 
 
 const app = express();

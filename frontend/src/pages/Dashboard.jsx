@@ -6,12 +6,16 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "@/components/ui/Navbar";
 
+
+
 const Dashboard = () => {
   const [balance, setBalance] = useState(0);
   const [userName, setUserName] = useState("User");
 
+  const myURL = import.meta.env.VITE_BASE_URL;
+ 
   useEffect(() => {
-    axios.get("http://13.53.205.111:8080/api/v1/account/balance", {
+    axios.get(`${myURL}/api/v1/account/balance`, {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },

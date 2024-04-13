@@ -5,36 +5,34 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Users = () => {
-
     const [filter, setFilter] = useState("");
     const [users, setUsers] = useState([]);
 
+    const myURL = import.meta.env.VITE_BASE_URL;
+
     useEffect(() => {
-        axios.get("http://13.53.205.111:8080/api/v1/user/bulk?filter=" + filter)
+        axios.get(`${myURL}/api/v1/user/bulk?filter=` + filter)
             .then(response => {
                 setUsers(response.data.user)
             })
-    }, [filter])
+    }, [filter]);
 
-  return (
-    <div className="mt-5">
-        <div className="font-bold text-3xl pt-6">
-            <h1>Users</h1>
+    return (
+        <div className="mt-5">
+            <div className="font-bold text-3xl pt-6">
+                <h1>Users</h1>
+            </div>
+            <div className="my-2">
+                <InputBox onChange={(e) => {
+                    setFilter(e.target.value)
+                }} type={"text"}  placeholder={"Search users...."}/>
+            </div>
+            <div>
+                {users && users.map(user => <User key={user.id} user={user} /> )}
+            </div>
         </div>
-        
-        <div className="my-2">
-            <InputBox onChange={(e) => {
-                setFilter(e.target.value)
-            }} type={"text"}  placeholder={"Search users...."}/>
-        </div>
-        <div>
-            {users && users.map(user => <User key={user.id} user={user} /> )}
-        </div>
-
-    </div>
-  )
+    );
 }
-
 
 function User({user}) {
     const navigate = useNavigate();
