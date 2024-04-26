@@ -40,7 +40,7 @@ const Signup = () => {
 
         <div className="pt-4">
         <Button onClick={async () => {
-            const response = await axios.post(`${myURL}/api/v1/user/signup/`, {
+            const response = await axios.post(`${myURL}/api/v1/user/signup`, {
               username,
               firstName,
               lastName,
